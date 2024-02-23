@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 const Body = () => {
   return (
-    <div className='flex flex-row overflow-auto pt-20 '>
+    <div className='flex flex-row overflow-auto '>
         <Sidebar></Sidebar>
         <Outlet />
     </div>

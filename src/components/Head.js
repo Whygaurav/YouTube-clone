@@ -1,6 +1,7 @@
-import React from 'react'
+// import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toggleMenu } from '../utils/appSlice';
+// import { CORS_PROXY_URL, YOUTUBE_SEARCH_API } from '../utils/constants';
 
 const Head = () => {
     const dispatch = useDispatch();
@@ -8,9 +9,22 @@ const Head = () => {
     const toggleMenuHandler = () => {
         dispatch(toggleMenu());
     }
+    
+    // const [searchQuery, setSearchQuery] = useState("");
+    // useEffect(() => {
+    //     console.log(searchQuery) //Calling the API
+    // Function to call API after every key press but,
+    // If time gap between two presses is more than 200ms then decline the API call
+    //     getSearchSuggestions();
+    // }, [searchQuery])
+    // const getSearchSuggestions = async() => {
+    //     const data = await fetch( CORS_PROXY_URL + YOUTUBE_SEARCH_API + searchQuery);
+    //     const json = await data.json();
+    //     console.log(json);
+    // }
 
   return (
-    <div className='absolute grid grid-flow-col p-2 m-1 shadow-lg w-screen '>
+    <div className=' grid grid-flow-col p-2 m-1 w-screen '>
         <div className='flex col-span-1'>
             <img
                 onClick={() => toggleMenuHandler()}
@@ -28,7 +42,12 @@ const Head = () => {
         </div>
 
         <div className='col-span-10 px-10'>
-            <input className='w-1/2 border border-gray-400 p-2 rounded-l-full' type='text'></input>
+            <input 
+                className='w-1/2 border border-gray-400 p-2 rounded-l-full' 
+                type='text'
+                // value={searchQuery}
+                // onChange={(e) => setSearchQuery(e.target.value)}
+            ></input>
             <button className='border border-gray-400 bg-gray-100 p-2 rounded-r-full'>Search</button>
         </div>
 
